@@ -10,10 +10,10 @@ Clarifai.initialize({
     'clientSecret': 'LQDwDlvFV6jKr9F0Gw2NvUHv3pUtKFsfQmXeY00q'
 });
 
-appServer.get('/getTags/:imageurl', function(serverRequest, severResponse) {
-    // var imageUrl = url.parse(serverRequest.url, true).query['url'];
+appServer.get('/getTags/', function(serverRequest, severResponse) {
+    var imageurl = severRequest.param('imageUrl');
     
-    console.log('Before: ' + imageUrl);
+    console.log('Before: ' + severRequest.param('imageUrl'));
     Clarifai.getTagsByUrl(imageurl).then(
   	    function(response) {
   	        if(imageurl == undefined) {
