@@ -10,6 +10,10 @@ Clarifai.initialize({
     'clientSecret': 'LQDwDlvFV6jKr9F0Gw2NvUHv3pUtKFsfQmXeY00q'
 });
 
+appServer.get('/', function(serverRequest, serverResponse) {
+    return serverResponse.send('Expected url format => htp://host:name/getTags?url=image_url');
+});
+
 appServer.get('/getTags', function(serverRequest, serverResponse) {
     
     var imageurl = serverRequest.param('url');
