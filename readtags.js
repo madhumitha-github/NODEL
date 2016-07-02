@@ -10,15 +10,15 @@ Clarifai.initialize({
     'clientSecret': 'LQDwDlvFV6jKr9F0Gw2NvUHv3pUtKFsfQmXeY00q'
 });
 
-appServer.get('/getTags', function(serverRequest, severResponse) {
-    var imageUrl = url.parse(serverRequest.url, true).query['url'];
+appServer.get('/getTags/:imageurl', function(serverRequest, severResponse) {
+    // var imageUrl = url.parse(serverRequest.url, true).query['url'];
     
     console.log('Before: ' + imageUrl);
-    Clarifai.getTagsByUrl(imageUrl).then(
+    Clarifai.getTagsByUrl(imageurl).then(
   	    function(response) {
   	        console.log('imageUrl');
   	        console.log('response: ' + JSON.stringify(response));
-    		serverResponse.json(JSON.stringify({'Tags' : response["results"][0].result["tag"]["classes"]}));
+    		serverResponse.json({'Tags' : response["results"][0].result["tag"]["classes"]});
         },
   	    function(error) {
   	        console.log('error');
