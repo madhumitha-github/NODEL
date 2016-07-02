@@ -14,7 +14,7 @@ appServer.get('/getTags', function(serverRequest, serverResponse) {
     
     var imageurl = serverRequest.param('url');
     if(imageurl == undefined) {
-        return serverResponse.send('Expected url format => htp://<host:name>/getTags?url=<image_url>');
+        return serverResponse.send('Expected url format => htp://host:name/getTags?url=image_url');
     }
   	        
     Clarifai.getTagsByUrl(imageurl).then(
