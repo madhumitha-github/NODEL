@@ -3,6 +3,6 @@
   "main": "readtags.js",
   "dependencies": {
     "clarifai": "1.2.1",
-    "httpdispatcher": "0.4.0"
+    "express": "~4.9.8"
   }
 }
