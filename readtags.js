@@ -13,11 +13,15 @@ Clarifai.initialize({
 appServer.get('/', function(serverRequest, severResponse) {
     var imageUrl = 'http://www.clarifai.com/img/metro-north.jpg';
     // var imageUrl = url.parse(serverRequest.url, true).query['url'];
+    
+    console.log('Before');
     Clarifai.getTagsByUrl(imageUrl).then(
   	    function(response) {
+  	        console.log('imageUrl');
     		serverResponse.end(JSON.stringify({'Tags' : response["results"][0].result["tag"]["classes"]}));
         },
   	    function(error) {
+  	        console.log('error');
     		serverResponse.end(error);
   	    }
     );
