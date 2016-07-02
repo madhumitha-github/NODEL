@@ -18,7 +18,7 @@ appServer.get('/', function(serverRequest, severResponse) {
     		serverResponse.end(JSON.stringify({'Tags' : response["results"][0].result["tag"]["classes"]}));
         },
   	    function(error) {
-    		console('error: ' + error);
+    		serverResponse.end(error);
   	    }
     );
 });
