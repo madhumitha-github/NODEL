@@ -1,0 +1,8 @@
+{
+  "name": "irecognize",
+  "main": "readtags.js",
+  "dependencies": {
+    "axios": "0.9.1",
+    "es6-promise": "3.1.2"
+  }
+}
