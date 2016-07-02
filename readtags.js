@@ -18,7 +18,7 @@ appServer.get('/getTags', function(serverRequest, severResponse) {
   	    function(response) {
   	        console.log('imageUrl');
   	        console.log('response: ' + JSON.stringify(response));
-    		serverResponse.render(JSON.stringify({'Tags' : response["results"][0].result["tag"]["classes"]}));
+    		serverResponse.json(JSON.stringify({'Tags' : response["results"][0].result["tag"]["classes"]}));
         },
   	    function(error) {
   	        console.log('error');
