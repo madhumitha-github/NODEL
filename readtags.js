@@ -16,6 +16,9 @@ appServer.get('/getTags/:imageurl', function(serverRequest, severResponse) {
     console.log('Before: ' + imageUrl);
     Clarifai.getTagsByUrl(imageurl).then(
   	    function(response) {
+  	        if(imageurl == undefined) {
+                return res.send('Pass Image url in the request params');
+            }
   	        console.log('imageUrl');
   	        console.log('response: ' + JSON.stringify(response));
     		serverResponse.json({'Tags' : response["results"][0].result["tag"]["classes"]});
