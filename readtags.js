@@ -10,11 +10,11 @@ Clarifai.initialize({
     'clientSecret': 'LQDwDlvFV6jKr9F0Gw2NvUHv3pUtKFsfQmXeY00q'
 });
 
-appServer.get('/', function(serverRequest, severResponse) {
-    var imageUrl = 'http://www.clarifai.com/img/metro-north.jpg';
-    // var imageUrl = url.parse(serverRequest.url, true).query['url'];
+appServer.get('/getTags', function(serverRequest, severResponse) {
+    // var imageUrl = 'http://www.clarifai.com/img/metro-north.jpg';
+    var imageUrl = url.parse(serverRequest.url, true).query['url'];
     
-    console.log('Before');
+    console.log('Before: ' + imageUrl);
     Clarifai.getTagsByUrl(imageUrl).then(
   	    function(response) {
   	        console.log('imageUrl');
