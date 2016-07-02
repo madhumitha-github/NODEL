@@ -11,9 +11,9 @@ Clarifai.initialize({
 });
 
 appServer.get('/getTags/', function(serverRequest, severResponse) {
-    var imageurl = severRequest.param('imageUrl');
+    var imageurl = serverRequest.param('url');
     
-    console.log('Before: ' + severRequest.param('imageUrl'));
+    console.log('Before: ' + serverRequest.param('url'));
     Clarifai.getTagsByUrl(imageurl).then(
   	    function(response) {
   	        if(imageurl == undefined) {
