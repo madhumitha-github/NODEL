@@ -11,7 +11,6 @@ Clarifai.initialize({
 });
 
 appServer.get('/getTags', function(serverRequest, severResponse) {
-    // var imageUrl = 'http://www.clarifai.com/img/metro-north.jpg';
     var imageUrl = url.parse(serverRequest.url, true).query['url'];
     
     console.log('Before: ' + imageUrl);
@@ -19,7 +18,7 @@ appServer.get('/getTags', function(serverRequest, severResponse) {
   	    function(response) {
   	        console.log('imageUrl');
   	        console.log('response: ' + JSON.stringify(response));
-    		serverResponse.end(JSON.stringify({'Tags' : response["results"][0].result["tag"]["classes"]}));
+    		serverResponse.render(JSON.stringify({'Tags' : response["results"][0].result["tag"]["classes"]}));
         },
   	    function(error) {
   	        console.log('error');
