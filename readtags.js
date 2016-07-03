@@ -4,6 +4,9 @@ var Clarifai = require('clarifai');
 var appServer = express();
 var port = process.env.PORT || 8080;
 
+console.log('clientId: ' + process.env.CLIENT_ID);
+console.log('clientSecret: ' + process.env.CLIENT_SECRET);
+
 Clarifai.initialize({
     'clientId': process.env.CLIENT_ID,
     'clientSecret': process.env.CLIENT_SECRET
