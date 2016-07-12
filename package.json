@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "clarifai": "1.2.0",
-    "express": "~4.14.0"
+    "express": "~4.14.0",
+    "exif-reader": "1.0.0"
   }
 }
